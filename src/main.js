@@ -1,6 +1,13 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
+import ElementPlus from 'element-plus'
+import 'animate.css';
+import 'element-plus/dist/index.css'
+
 import router from './router'
 import store from './store'
 
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(ElementPlus).use(store).use(router).mount('#app')
+
+
+

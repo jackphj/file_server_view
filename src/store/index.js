@@ -3,7 +3,8 @@ import {createStore} from 'vuex'
 export default createStore({
     state: {
         token: '' || localStorage.getItem("token"),
-        location: []
+        location: [],
+        user_name: '' || 'share'
     },
     getters: {
         locationGet: (state) => {
@@ -19,6 +20,11 @@ export default createStore({
             localStorage.removeItem("token");
             localStorage.setItem('token', payload);
             state.token = payload;
+        },
+        saveName(state, payload) {
+            if (payload) {
+                state.user_name = payload
+            }
         },
         locationPush(state, payload) {
             let push = ''

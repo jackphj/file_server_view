@@ -17,12 +17,15 @@ connectServer.interceptors.request.use(function (config) {
 })
 
 connectServer.interceptors.response.use(function (response) {
+    if (response.data.name !== undefined) {
+        store.commit("saveName", response.data.name.toUpperCase())
+    }
     if (response.data.token !== undefined) {
         store.commit("saveToken", response.data.token)
     }
     return response
 }, function (error) {
-    if (error.response.status === 401) {
+    if (error.response.status === 401 || error.response.status === 400) {
         router.push('/login')
     }
     return Promise.reject(error);

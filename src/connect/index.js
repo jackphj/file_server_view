@@ -4,7 +4,7 @@ import router from "@/router";
 
 const connectServer = axios.create()
 
-connectServer.defaults.baseURL = "http://127.0.0.1:2333"
+// connectServer.defaults.baseURL = "http://127.0.0.1:2333"
 
 connectServer.defaults.timeout = 1000
 
